@@ -1,5 +1,16 @@
 package mergesort
 
+// Mergesort
+//
+// 1. Divide the list in two equal lengths
+// 2. Recursively divide the sublists into equal lengths
+// 3. Merge the sublists, placing items in order
+//
+// The time complexity in the worst and average case: O(nlogn)
+// The problem is solved recursively by splitting the input
+// in half at each level. Once the base case is reached (a
+// list of size 1) then the results are merged in order.
+
 func merge(left, right []int) []int {
 	combined := make([]int, 0)
 	for (len(left) != 0) && (len(right) != 0) {
