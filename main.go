@@ -1,6 +1,7 @@
 package main
 
 import (
+	"algos/bubblesort"
 	"algos/insertionsort"
 	"algos/mergesort"
 	"algos/quicksort"
@@ -24,4 +25,9 @@ func main() {
 	unsortedArray = []int{5, 7, 2, -3, 9, -5}
 	sortedArray = insertionsort.Sort(unsortedArray)
 	fmt.Println("insertion sort complete", sortedArray)
+
+	// Bubble Sort
+	unsortedArray = []int{5, 7, 2, -3, 9, -5}
+	sortedArray = bubblesort.Sort(unsortedArray)
+	fmt.Println("bubble sort complete", sortedArray)
 }
