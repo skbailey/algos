@@ -5,10 +5,23 @@ import (
 	"algos/insertionsort"
 	"algos/mergesort"
 	"algos/quicksort"
+	"algos/structures"
 	"fmt"
 )
 
 func main() {
+	stack := structures.NewStack()
+	stack.Push("this")
+	stack.Push("is")
+	stack.Push("sparta!!")
+
+	for len(stack) > 0 {
+		x, y := stack.Pop()
+		if y == true {
+			fmt.Println(x)
+		}
+	}
+
 	unsortedArray := []int{5, 7, 2, -3, 9, -5}
 	fmt.Println("Unsorted Array", unsortedArray)
 
