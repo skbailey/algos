@@ -10,6 +10,14 @@ import (
 )
 
 func main() {
+	list := structures.NewLinkedList()
+	list.Append(3)
+	list.Append(5)
+	list.Append(9)
+	list.Append(1)
+	list.Append(1)
+	list.Traverse()
+
 	stack := structures.NewStack()
 	stack.Push("this")
 	stack.Push("is")
