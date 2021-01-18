@@ -14,9 +14,15 @@ func main() {
 	list.Append(3)
 	list.Append(5)
 	list.Append(9)
-	list.Append(1)
-	list.Append(1)
+	list.Append(5)
+	list.Append(3)
 	list.Traverse()
+	found := list.IsPalindrome()
+	if found {
+		fmt.Println("Found a palindrome!")
+	} else {
+		fmt.Println("No palindrome found.")
+	}
 
 	stack := structures.NewStack()
 	stack.Push("this")

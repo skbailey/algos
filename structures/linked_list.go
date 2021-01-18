@@ -52,6 +52,26 @@ func (list *LinkedList) Delete(value int) {
 	}
 }
 
+func isPalindrome(node *Node, head *Node) (bool, *Node) {
+	if node.Next == nil {
+		return node.Value == head.Value, head.Next
+	}
+
+	matched, next := isPalindrome(node.Next, head)
+	if !matched {
+		return false, nil
+	}
+
+	return node.Value == next.Value, next.Next
+}
+
+// IsPalindrome determines if a LinkedList is a palindrome
+func (list *LinkedList) IsPalindrome() bool {
+	head := list.Head
+	answer, _ := isPalindrome(head, head)
+	return answer
+}
+
 // Traverse prints out all values in the linked list
 func (list *LinkedList) Traverse() {
 	if list.Head == nil {
@@ -70,4 +90,5 @@ func (list *LinkedList) Traverse() {
 // NewLinkedList creates a new LinkedList
 func NewLinkedList() LinkedList {
 	return LinkedList{}
+
 }
