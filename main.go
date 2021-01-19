@@ -2,6 +2,7 @@ package main
 
 import (
 	"algos/bubblesort"
+	"algos/fibonacci"
 	"algos/insertionsort"
 	"algos/mergesort"
 	"algos/quicksort"
@@ -10,6 +11,13 @@ import (
 )
 
 func main() {
+	// Fibonacci Sequence
+	ordinal := 6
+	value := fibonacci.Run(ordinal)
+	fmt.Println("value", value)
+	fmt.Printf("This is the %dth element of the fibonacci sequence: %d\n", ordinal, value)
+
+	// Linked List
 	list := structures.NewLinkedList()
 	list.Append(3)
 	list.Append(5)
