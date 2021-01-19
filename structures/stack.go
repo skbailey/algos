@@ -1,7 +1,17 @@
 package structures
 
+import "errors"
+
+// StackNode represents a node in a stack
+type StackNode struct {
+	Next  *StackNode
+	Value string
+}
+
 // Stack is a data structure
-type Stack []string
+type Stack struct {
+	Top *StackNode
+}
 
 // NewStack creates a new Stack
 func NewStack() Stack {
@@ -10,25 +20,37 @@ func NewStack() Stack {
 
 // IsEmpty checks if the stack is empty
 func (s Stack) IsEmpty() bool {
-	return len(s) == 0
+	return s.Top == nil
 }
 
 // Push a new value onto the stack
 func (s *Stack) Push(str string) {
-	*s = append(*s, str) // Simply append the new value to the end of the stack
+	node := &StackNode{Value: str}
+	if s.Top == nil {
+		s.Top = node
+		return
+	}
+
+	node.Next = s.Top
+	s.Top = node
 }
 
 // Pop removes and returns the top element of stack. Return false if stack is empty.
-func (s *Stack) Pop() (string, bool) {
+func (s *Stack) Pop() (string, error) {
 	if s.IsEmpty() {
-		return "", false
+		return "", errors.New("the stack is empty, nothing to pop")
 	}
 
-	index := len(*s) - 1   // Get the index of the top most element.
-	element := (*s)[index] // Index into the slice and obtain the element.
-	(*s) = (*s)[:index]    // Remove it from the stack by slicing it off.
-	return element, true
+	data := s.Top.Value
+	s.Top = s.Top.Next
+	return data, nil
 }
 
-func main() {
+// Peek fetches the value at the top of the stack
+func (s *Stack) Peek() (string, error) {
+	if s.IsEmpty() {
+		return "", errors.New("the stack is empty, nothing to pop")
+	}
+
+	return s.Top.Value, nil
 }

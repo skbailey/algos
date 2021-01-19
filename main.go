@@ -22,24 +22,21 @@ func main() {
 	list.Append(3)
 	list.Append(5)
 	list.Append(9)
-	list.Append(5)
-	list.Append(3)
+	list.Append(1)
+	list.Append(1)
 	list.Traverse()
-	found := list.IsPalindrome()
-	if found {
-		fmt.Println("Found a palindrome!")
-	} else {
-		fmt.Println("No palindrome found.")
-	}
 
+	// Stack
 	stack := structures.NewStack()
 	stack.Push("this")
 	stack.Push("is")
 	stack.Push("sparta!!")
 
-	for len(stack) > 0 {
-		x, y := stack.Pop()
-		if y == true {
+	for !stack.IsEmpty() {
+		x, err := stack.Pop()
+		if err != nil {
+			fmt.Println(err)
+		} else {
 			fmt.Println(x)
 		}
 	}
