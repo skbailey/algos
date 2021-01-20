@@ -41,6 +41,22 @@ func main() {
 		}
 	}
 
+	// Queue
+	queue := structures.NewQueue()
+	queue.Add("this")
+	queue.Add("queue")
+	queue.Add("is")
+	queue.Add("boss!")
+
+	for !queue.IsEmpty() {
+		x, err := queue.Remove()
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			fmt.Println(x)
+		}
+	}
+
 	unsortedArray := []int{5, 7, 2, -3, 9, -5}
 	fmt.Println("Unsorted Array", unsortedArray)
 
